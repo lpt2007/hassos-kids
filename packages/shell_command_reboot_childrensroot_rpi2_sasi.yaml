@@ -1,0 +1,25 @@
+####################################################
+#                                                  #
+#                  SHELL COMMAND                   #
+#                                                  #
+####################################################
+#                                                  #
+#      reboot_childrensroot_rpi2_sasi              #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/shell_command/
+
+shell_command:
+  reboot_childrensroom_rpi2_sasi: !secret shell_reboot_childrensroom_rpi2_sasi
+
+script:
+  script_reboot_childrensroom_rpi2_sasi:
+    sequence:
+      - service: shell_command.reboot_childrensroom_rpi2_sasi
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

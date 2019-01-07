@@ -1,0 +1,40 @@
+####################################################
+#                                                  #
+#                 KODI PARENTS ROOM                #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/media_player.kodi/
+
+  - platform: kodi
+    host: !secret bedroom_rpi3_kodi_host
+    port: !secret kodi_port
+    name: bedroom_rpi3_kodi
+    username: !secret kodi_user
+    password: !secret kodi_pass
+
+    turn_on_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.bedroom_rpi3_kodi
+        method: Addons.ExecuteAddon
+        addonid: script.json-cec
+        params:
+          command: activate
+    turn_off_action:
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.bedroom_rpi3_kodi
+    - service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.bedroom_rpi3_kodi
+        method: Addons.ExecuteAddon
+        addonid: script.json-cec
+        params:
+          command: standby
+
+####################################################
+#                                                  #
+#          END OF CONFIGURATION FILE               #
+#                                                  #
+####################################################

@@ -1,0 +1,26 @@
+####################################################
+##  POSILJANJE SPOROCILO JE SPROZEN RPI RESET          
+####################################################
+####################################################
+#location
+##/config/media_players
+
+  - alias: 'send_notification_bedroom_rpi_reset_triggered'
+    trigger:
+      - platform: state
+        entity_id: media_player.bedroom_rpi3_kodi
+        to: 'off'
+    action:
+      - service: notify.telegram_hassos_kids
+        data:
+          message: "KODI-SPALNICA, ponovno zagnan!"
+      - service: persistent_notification.create
+        data:
+          title: "REBOOT"
+          message: "KODI-SPALNICA, ponovno zagnan!"
+
+####################################################
+#                                                  #
+#          END OF CONFIGURATION FILE               #
+#                                                  #
+####################################################

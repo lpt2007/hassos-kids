@@ -1,0 +1,21 @@
+####################################################
+#                                                  #
+#                      HTTP                        #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/http/
+
+  api_password: !secret api_password
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
+  server_port: !secret server_port
+  ip_ban_enabled: !secret ip_ban
+  login_attempts_threshold: !secret login_attempts_threshold
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

@@ -1,0 +1,14 @@
+####################################################
+#                                                  #
+#                   HISTORY                        #
+#                                                  #
+####################################################
+
+# Enables support for tracking state changes over time
+# https://home-assistant.io/components/history/
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

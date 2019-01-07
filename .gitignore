@@ -3,7 +3,7 @@
 ############################################################
 # Example .gitignore file for your config dir.
 # A * ensures that everything will be ignored.
-*
+#*
 
 # You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
@@ -11,11 +11,17 @@
 !*.md
 
 # Ignore folders.
+.ssh
 .storage
 .cloud
 .google.token
+node-red
+deps
+tts
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
+home-assistant.log
+home-assistant_v2.db

@@ -1,0 +1,18 @@
+####################################################
+#                                                  #
+#                TELEGRAM BOT                      #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/notify.telegram/
+
+  - platform: polling
+    api_key: !secret telegram_bot_apy_key
+    allowed_chat_ids:
+      - !secret telegram_bot_allowed_chat_id
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

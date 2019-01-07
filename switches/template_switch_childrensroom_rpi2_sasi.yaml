@@ -1,0 +1,30 @@
+####################################################
+#                                                  #
+#       TEMPLATE SWITCH SASI RPI2 - REBOOT        #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/switch.template/
+
+  - platform: template
+    switches:
+      template_switch_childrensroom_rpi2_sasi:
+        friendly_name: KODI reboot - sasi
+        value_template: "{{ is_state('media_player.childensroom_rpi2_kodi_sasi', 'idle') or is_state('media_player.childensroom_rpi2_kodi_sasi', 'playing') or is_state('media_player.childensroom_rpi2_kodi_sasi', 'paused') }}"
+
+        turn_on:
+
+        turn_off:
+          service: shell_command.reboot_childrensroom_rpi2_sasi
+
+        entity_picture_template: >
+          {% if states('media_player.bedroom_rpi3_kodi') in ['playing','paused','idle'] %} 
+                {{ '/local/icons/kodi/' ~ states('media_player.bedroom_rpi3_kodi') ~ '.svg'}}
+          {% else %} /local/icons/kodi/offline.svg
+          {% endif %}
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

@@ -1,0 +1,40 @@
+####################################################
+#                                                  #
+#          KODI CHILDRENS ROOM SASI                #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/components/media_player.kodi/
+
+  - platform: kodi
+    host: !secret childensroom_rpi2_kodi_sasi_host
+    port: !secret kodi_port
+    name: childensroom_rpi2_kodi_sasi
+    username: !secret kodi_user
+    password: !secret kodi_pass
+
+    turn_on_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.childensroom_rpi2_kodi_sasi
+        method: Addons.ExecuteAddon
+        addonid: script.json-cec
+        params:
+          command: activate
+    turn_off_action:
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.childensroom_rpi2_kodi_sasi
+    - service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.childensroom_rpi2_kodi_sasi
+        method: Addons.ExecuteAddon
+        addonid: script.json-cec
+        params:
+          command: standby
+
+####################################################
+#                                                  #
+#          END OF CONFIGURATION FILE               #
+#                                                  #
+####################################################

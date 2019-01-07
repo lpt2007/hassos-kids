@@ -1,0 +1,25 @@
+####################################################
+#                                                  #
+#                  SHELL COMMAND                   #
+#                                                  #
+####################################################
+#                                                  #
+#               reboot_bedroom_rpi3                #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/shell_command/
+
+shell_command:
+  reboot_bedroom_rpi3: !secret shell_reboot_bedroom_rpi3
+
+script:
+  script_reboot_bedroom_rpi3:
+    sequence:
+      - service: shell_command.reboot_bedroom_rpi3
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

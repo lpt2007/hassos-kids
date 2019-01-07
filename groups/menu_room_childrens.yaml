@@ -1,0 +1,27 @@
+#https://home-assistant.io/components/group
+
+####################################################
+#                                                  #
+#                     VIEWS                        #
+#                                                  #
+####################################################
+
+####################################################
+#              CHILDRENS ROOMS                     #
+####################################################
+
+  menu_room_childrens:
+    view: yes
+    name: otroska
+    control: hidden
+    entities:
+      - media_player.childensroom_rpi2_kodi_filip
+      - media_player.childensroom_rpi2_kodi_sasi
+      - switch.template_switch_childrensroom_rpi2_filip
+      - switch.template_switch_childrensroom_rpi2_sasi
+
+####################################################
+#                                                  #
+#           END OF CONFIGURATION FILE              #
+#                                                  #
+####################################################

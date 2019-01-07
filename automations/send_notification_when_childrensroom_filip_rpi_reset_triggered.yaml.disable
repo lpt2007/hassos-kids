@@ -1,0 +1,22 @@
+####################################################
+##  POSILJANJE SPOROCILO JE SPROZEN RPI RESET          
+####################################################
+####################################################
+#location
+##/config/media_players
+
+  - alias: 'send_notification_childrensroom_filip_rpi_reset_triggered'
+    trigger:
+      - platform: state
+        entity_id: script.script_reboot_childrensroom_rpi2_filip
+        to: 'on'
+    action:
+      - service: notify.telegram_hassos_kids
+        data:
+          message: "KODI-FILIP, sprozen ponovni zagon!"
+
+####################################################
+#                                                  #
+#          END OF CONFIGURATION FILE               #
+#                                                  #
+####################################################

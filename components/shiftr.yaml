@@ -1,0 +1,16 @@
+####################################################
+#                                                  #
+#                     SHIFTR                       #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/shiftr/
+
+  username: !secret shiftr_user
+  password: !secret shiftr_pass
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

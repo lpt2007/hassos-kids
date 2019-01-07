@@ -1,0 +1,17 @@
+####################################################
+#                                                  #
+#                    NOTIFY                        #
+#                                                  #
+####################################################
+
+#https://www.home-assistant.io/components/notify.telegram/
+
+  - name: !secret notify_tb_name
+    platform: telegram
+    chat_id: !secret notify_tb_chat_id
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################
