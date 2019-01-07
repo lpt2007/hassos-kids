@@ -1,0 +1,90 @@
+## https://home-assistant.io/getting-started/
+## https://home-assistant.io/cookbook/
+## http://www.yamllint.com/
+
+####################################################
+## HASSOS - KIDS
+####################################################
+
+homeassistant:
+  name: !secret hassio_name
+  latitude: !secret hassio_latitude
+  longitude: !secret hassio_longitude
+  elevation: !secret hassio_elevation
+  unit_system: !secret hassio_unit_system
+  time_zone: !secret hassio_time_zone
+
+##################################################
+## packages
+##################################################
+#location
+##/config/packages/
+# https://home-assistant.io/docs/configuration/packages/
+
+  packages: !include_dir_named packages/
+
+
+# Enables configuration UI
+#https://home-assistant.io/components/config/
+config:
+
+# Checks for available updates
+updater:
+  
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Enables hass.io tab
+hassio:
+
+
+####################################################
+#                                                  #
+#                     GENERAL                      #
+#                                                  #
+####################################################
+
+##################################################
+## Components
+##################################################
+#location
+##/config/components/http.yaml
+
+http: !include components/http.yaml
+mqtt: !include components/mqtt.yaml
+tts: !include components/tts.yaml
+zone: !include components/zones.yaml
+frontend: !include components/frontend.yaml
+
+history: !include components/history.yaml
+logger: !include components/logger.yaml
+recorder: !include components/recorder.yaml
+shiftr: !include components/shiftr.yaml
+influxdb: !include components/influxdb.yaml
+
+telegram_bot: !include components/telegram_bot.yaml
+notify: !include components/notify.yaml
+
+####################################################
+#                                                  #
+#   LINKS TO INDIVUAL CONFIGURATION DIRECTORY      #
+#                                                  #
+####################################################
+
+#https://home-assistant.io/docs/configuration/splitting_configuration/
+
+group: !include_dir_merge_named groups
+automation: !include_dir_merge_list automations
+#script: !include_dir_merge_list scripts
+#sensor: !include_dir_merge_list sensor
+switch: !include_dir_merge_list switches
+media_player: !include_dir_merge_list media_players
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################
